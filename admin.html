@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Loan Applications</title>
+    <style>
+        body {
+           background: url('https://images.pexels.com/photos/4386395/pexels-photo-4386395.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.6);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th { background-color: #0984e3; }
+        tr:nth-child(even) { background-color: rgba(255,255,255,0.1); }
+        a {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <h2>All Loan Applications</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Income</th>
+            <th>Loan</th>
+            <th>Credit Score</th>
+            <th>Result</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

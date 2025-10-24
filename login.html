@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Loan Prediction</title>
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/4386374/pexels-photo-4386374.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+        button {
+            background: #00b894;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #019170;
+        }
+        a { color: #81ecec; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" width="80">
+        <h2>Login</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Enter username" required><br>
+            <input type="password" name="password" placeholder="Enter password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>{{ message }}</p>
+        <p>New user? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+</body>
+</html>
