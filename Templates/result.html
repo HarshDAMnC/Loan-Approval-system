@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Result</title>
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .result-box {
+            background: rgba(0,0,0,0.75);
+            display: inline-block;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        img { margin-top: 10px; border-radius: 10px; }
+        .approved { color: #00b894; font-weight: bold; }
+        .rejected { color: #d63031; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>Your Loan Result</h2>
+        <h3 class="{{ 'approved' if result=='approved' else 'rejected' }}">
+            Loan {{ result.upper() }}
+        </h3>
+        <p>Approval Probability: {{ '%.2f'|format(pred*100) }}%</p>
+        <p>Interest Rate: <b>{{ interest_rate }}%</b></p>
+        <img src="data:image/png;base64,{{ plot }}" width="450">
+        <br><br>
+        <a href="{{ url_for('apply') }}" style="color: #81ecec;">Apply Again</a>
+    </div>
+</body>
+</html>
